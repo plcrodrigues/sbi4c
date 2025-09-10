@@ -7,22 +7,17 @@ type: landing
 sections:
   - block: hero
     content:
-      title: |
-        Wowchemy
-        Research Group
       image:
-        filename: welcome.jpg
-      text: |
-        <br>
-        
-        The **Wowchemy Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
+        filename: header.png
+      text: | 
+        <span style="font-size: clamp(14px, 2vw, 22px); line-height: 1.4">Project SBI4C is an interdisciplinary initiative aimed at transforming **parameter inference methodologies for large-scale physical simulators**, with a specific focus on <span style="color: green; font-weight: bold">climate science</span>. Our main funding comes from the [MIAI cluster](https://miai-cluster.univ-grenoble-alpes.fr/en/) located in Grenoble, France.</span>
   
   - block: collection
     content:
       title: Latest News
       subtitle:
       text:
-      count: 5
+      count: 2
       filters:
         author: ''
         category: ''
@@ -34,40 +29,7 @@ sections:
       page_type: post
     design:
       view: card
-      columns: '1'
-  
-  - block: markdown
-    content:
-      title:
-      subtitle: ''
-      text:
-    design:
-      columns: '1'
-      background:
-        image: 
-          filename: coders.jpg
-          filters:
-            brightness: 1
-          parallax: false
-          position: center
-          size: cover
-          text_color_light: true
-      spacing:
-        padding: ['20px', '0', '20px', '0']
-      css_class: fullscreen
-
-  - block: collection
-    content:
-      title: Latest Preprints
-      text: ""
-      count: 5
-      filters:
-        folders:
-          - publication
-        publication_type: 'article'
-    design:
-      view: citation
-      columns: '1'
+      columns: '3'
 
   - block: markdown
     content:
