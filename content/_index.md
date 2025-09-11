@@ -10,7 +10,7 @@ sections:
       image:
         filename: header.png
       text: | 
-        <span style="font-size: clamp(14px, 2vw, 22px); line-height: 1.4">Project SBI4C is an interdisciplinary initiative aimed at transforming **parameter inference methodologies for large-scale physical simulators**, with a specific focus on <span style="color: green; font-weight: bold">climate science</span>. Our main funding comes from the [MIAI cluster](https://miai-cluster.univ-grenoble-alpes.fr/en/) located in Grenoble, France.</span>
+        <span style="font-size: clamp(14px, 2vw, 22px); line-height: 1.4">SBI4C is an interdisciplinary research project that develops new methodologies for parameter inference in large-scale physical simulators, with <span style="color: green; font-weight: bold">climate science</span> as its central application domain. It is primarily funded by the [MIAI cluster](https://miai-cluster.univ-grenoble-alpes.fr/en/) in Grenoble, France.</span>
   
   - block: collection
     content:

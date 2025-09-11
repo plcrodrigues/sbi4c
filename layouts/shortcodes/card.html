@@ -1,0 +1,7 @@
+{{ $link := .Get "link" }}
+<div class="card">
+  {{ if $link }}<a href="{{ $link }}">{{ end }}
+  <h3>{{ .Get "title" }}</h3>
+  <p>{{ .Inner }}</p>
+  {{ if $link }}</a>{{ end }}
+</div>
