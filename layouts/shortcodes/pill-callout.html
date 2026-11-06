@@ -1,0 +1,16 @@
+{{/*
+  Renders a highlighted callout box (key insight, warning, note).
+
+  Usage:
+    {{< pill-callout >}}
+    **Key insight:** Your text here.
+    {{< /pill-callout >}}
+
+  Optional type parameter (default: "insight"):
+    {{< pill-callout type="warning" >}}
+    {{< pill-callout type="note" >}}
+*/}}
+{{ $type := .Get "type" | default "insight" }}
+<aside class="pill-callout pill-callout--{{ $type }}" role="note">
+  {{ .Inner | markdownify }}
+</aside>

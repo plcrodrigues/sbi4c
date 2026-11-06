@@ -1,0 +1,24 @@
+{{/*
+  Renders a yellow verification note visible during Gate 1 review.
+  REMOVE THIS SHORTCODE CALL from index.md before publishing.
+
+  Usage:
+    {{< pill-verification-note >}}
+    - ⚠️ Dropped: [paper name] — arxiv link could not be verified
+    - ⚠️ Unverified: [paper name] — please confirm before publishing
+    - [citation needed] in section 3, paragraph 2
+    {{< /pill-verification-note >}}
+
+  If the AI found no issues, the inner content will say "No issues found."
+*/}}
+<div class="pill-verification-note" role="note">
+  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+       viewBox="0 0 24 24" style="flex-shrink:0; margin-top:3px" aria-hidden="true">
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+    <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+  </svg>
+  <div>
+    <strong>Gate 1 — Verification notes (remove before publishing):</strong>
+    {{ .Inner | markdownify }}
+  </div>
+</div>

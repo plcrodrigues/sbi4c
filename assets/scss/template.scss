@@ -1,3 +1,12 @@
+/* Reduce top padding for the left panel in Goals block */
+.goals-left {
+  padding-top: 0 !important;
+}
+/* Reduce space above the goals panel block */
+.goals-panel {
+  margin-top: -3.0rem !important;
+  margin-bottom: -3.0rem !important;
+}
 // Make page header alignment consistent with widget page header alignment
 .universal-wrapper h1 {
   text-align: center;
@@ -6,4 +15,75 @@
 // Center the CTA shortcode button
 .cta-group {
   justify-content: center;
+}
+
+// Custom font size for navbar links
+.nav-link {
+  font-size: 1.0rem; /* Adjust as needed */
+}
+
+/* Panel (rounded white card with soft shadow) */
+.panel {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.06);
+  padding: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* Two-column layout: left text, right tiles */
+.goals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr; /* adjust right column width */
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: start;
+}
+
+/* Left column */
+.goals-left h2 {
+  margin: 0 0 0.2rem;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+}
+.goals-left p {
+  margin: 0;
+  line-height: 1.6;
+  opacity: .9;
+  text-align: justify;  
+  text-justify: auto;  
+}
+
+/* Right column = responsive mini-cards */
+.goals-right {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.goal-item {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.06);
+  padding: 1rem 1.1rem;
+}
+.goal-item h3 {
+  margin: 0 0 .35rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.goal-item p {
+  margin: 0;
+  line-height: 1.5;
+  opacity: .9;
+}
+
+/* Mobile: stack columns */
+@media (max-width: 900px) {
+  .goals-grid { grid-template-columns: 1fr; }
+}
+
+.hero-lead {
+  line-height: 1.2 !important;
+  max-width: 700px;
+  text-align: justify;  
+  text-justify: auto;
+  margin-right: 1em;
+  margin-top: 1em;
 }

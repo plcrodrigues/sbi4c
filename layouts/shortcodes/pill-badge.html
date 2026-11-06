@@ -1,0 +1,11 @@
+{{/* 
+  Usage: {{< pill-badge type="deep-dive" >}}
+  or:    {{< pill-badge type="survey" >}}
+*/}}
+{{ $type := .Get "type" | default "survey" }}
+{{ $label := "Survey pill" }}
+{{ if eq $type "deep-dive" }}{{ $label = "Deep-dive pill" }}{{ end }}
+<div class="pill-type-badge">
+  <span class="pill-dot"></span>
+  {{ $label }}
+</div>

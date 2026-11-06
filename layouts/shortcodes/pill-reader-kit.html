@@ -1,0 +1,53 @@
+{{/*
+  Renders the reader kit download box at the end of a pill.
+
+  Usage:
+    {{< pill-reader-kit title="Neural Posterior Estimation" file="pill.md" >}}
+    Optional description text here.
+    {{< /pill-reader-kit >}}
+
+  Parameters:
+    title  — topic name shown in the box header (required)
+    file   — filename of the pill.md asset (default: "pill.md")
+*/}}
+{{ $title := .Get "title" | default "this topic" }}
+{{ $file  := .Get "file"  | default "pill.md" }}
+
+{{/* Resolve the download URL relative to the page */}}
+{{ $fileURL := $file }}
+{{ $res := .Page.Resources.GetMatch $file }}
+{{ with $res }}{{ $fileURL = .RelPermalink }}{{ end }}
+
+<div class="pill-reader-kit">
+  <div class="pill-reader-kit-header">
+    <div class="pill-reader-kit-icon" aria-hidden="true">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </div>
+    <div>
+      <div class="pill-reader-kit-title">pill.md — Chatbot conversation starter</div>
+      <div class="pill-reader-kit-subtitle">Compatible with Claude, GPT-4, Gemini, and others</div>
+    </div>
+  </div>
+
+  {{ with .Inner }}
+  <p>{{ . | markdownify }}</p>
+  {{ else }}
+  <p>
+    Download <code>pill.md</code> and paste its contents into any chat session
+    to start an informed conversation about {{ $title }}.
+    The file includes the full pill content, arxiv links to all cited papers,
+    and a menu of suggested questions organized by depth.
+  </p>
+  {{ end }}
+
+  <a href="{{ $fileURL }}" download="{{ $file }}" class="pill-download-btn">
+    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    Download pill.md
+  </a>
+</div>

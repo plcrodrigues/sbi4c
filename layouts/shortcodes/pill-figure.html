@@ -1,0 +1,57 @@
+{{/*
+  Renders a pill figure with standardized caption format.
+  Wraps Hugo's built-in figure with pill-specific classes and
+  enforces the "Adapted from [Author et al., Year]" citation format.
+
+  Usage:
+    {{< pill-figure
+      src="figures/forward-inverse.svg"
+      number="1"
+      caption="The simulation-based inference problem."
+      source="Cranmer et al., 2020"
+      arxiv="https://arxiv.org/abs/1911.01429"
+    >}}
+
+  All parameters except src are optional.
+  If no src is provided, renders a placeholder (useful during drafting).
+*/}}
+{{ $src     := .Get "src" }}
+{{ $number  := .Get "number" }}
+{{ $caption := .Get "caption" }}
+{{ $source  := .Get "source" }}
+{{ $arxiv   := .Get "arxiv" }}
+
+<figure class="pill-figure">
+  {{ if $src }}
+    {{ if strings.HasSuffix $src ".svg" }}
+      {{/* Inline SVGs for crisp rendering at all sizes */}}
+      {{ $res := .Page.Resources.GetMatch $src }}
+      {{ if $res }}
+        {{ $res.Content | safeHTML }}
+      {{ else }}
+        <img src="{{ $src }}" alt="{{ $caption }}" loading="lazy" />
+      {{ end }}
+    {{ else }}
+      <img src="{{ $src }}" alt="{{ $caption }}" loading="lazy" />
+    {{ end }}
+  {{ else }}
+    <div class="pill-figure-placeholder" aria-label="Figure placeholder">
+      {{ if $number }}Figure {{ $number }}{{ else }}Figure{{ end }} — source image to be provided
+    </div>
+  {{ end }}
+
+  {{ if or $caption $source }}
+  <figcaption>
+    {{ if $number }}<strong>Figure {{ $number }}:</strong> {{ end }}
+    {{ with $caption }}{{ . }}{{ end }}
+    {{ if $source }}
+      Adapted from
+      {{ if $arxiv }}
+        <a href="{{ $arxiv }}" target="_blank" rel="noopener">{{ $source }}</a>.
+      {{ else }}
+        {{ $source }}.
+      {{ end }}
+    {{ end }}
+  </figcaption>
+  {{ end }}
+</figure>

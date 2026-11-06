@@ -1,0 +1,27 @@
+{{/*
+  Renders the pill table of contents.
+  Sections shown depend on pill_type (survey vs deep-dive) from frontmatter.
+
+  Usage: {{< pill-toc >}}
+  No parameters needed — reads .Page.Params.pill_type automatically.
+*/}}
+{{ $type := .Page.Params.pill_type | default "survey" }}
+{{ $isDeepDive := eq $type "deep-dive" }}
+
+<nav class="pill-toc" aria-label="Pill contents">
+  <h4>Contents</h4>
+  <ol>
+    <li><a href="#the-question">1. The question</a></li>
+    <li><a href="#context-background">2. Context &amp; background</a></li>
+    {{ if $isDeepDive }}
+    <li><a href="#main-contributions">3. Main contributions</a></li>
+    <li><a href="#intuition-worked-example">3b. Intuition &amp; worked example</a></li>
+    {{ else }}
+    <li><a href="#core-concepts">3. Core concepts</a></li>
+    {{ end }}
+    <li><a href="#key-papers">{{ if $isDeepDive }}4{{ else }}4{{ end }}. Key papers</a></li>
+    <li><a href="#open-questions">5. Open questions</a></li>
+    <li><a href="#further-reading">6. Further reading</a></li>
+    <li><a href="#reader-kit">7. Reader kit</a></li>
+  </ol>
+</nav>

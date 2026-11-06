@@ -1,0 +1,343 @@
+/* ============================================================
+   SBI4C Research Pills — custom styles
+   Append this to assets/scss/custom.css in your Hugo site.
+   All classes are namespaced with .pill- or specific names
+   to avoid conflicts with Wowchemy/Hugo Blox base styles.
+   ============================================================ */
+
+/* ── Pill type badge (top of article) ── */
+.pill-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1565c0;
+  background: #e8f0fb;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+.pill-type-badge .pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1565c0;
+}
+.dark .pill-type-badge {
+  background: #1a2e4a;
+  color: #90b8f0;
+}
+.dark .pill-type-badge .pill-dot {
+  background: #90b8f0;
+}
+
+/* ── Pill meta row (difficulty, reading time, etc.) ── */
+.pill-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1.25rem 0 1.75rem;
+}
+.pill-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.54);
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.dark .pill-meta-tag {
+  color: rgba(255, 255, 255, 0.54);
+  background: #242424;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Table of contents ── */
+.pill-toc {
+  background: #f8f9fa;
+  border-left: 3px solid #1565c0;
+  padding: 1rem 1.25rem;
+  margin: 0 0 2.5rem;
+  border-radius: 0 4px 4px 0;
+}
+.dark .pill-toc {
+  background: #242424;
+}
+.pill-toc h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 0 0 0.6rem;
+}
+.dark .pill-toc h4 {
+  color: rgba(255, 255, 255, 0.54);
+}
+.pill-toc ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.15rem 1rem;
+}
+@media (max-width: 560px) {
+  .pill-toc ol { grid-template-columns: 1fr; }
+}
+.pill-toc li {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.54);
+}
+.dark .pill-toc li {
+  color: rgba(255, 255, 255, 0.54);
+}
+.pill-toc a {
+  color: #1565c0;
+  text-decoration: none;
+}
+.pill-toc a:hover {
+  text-decoration: underline;
+}
+
+/* ── Section number chips on h2 ── */
+.pill-section-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: #1565c0;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.pill-section-num.alt {
+  background: #0d7a5f; /* section 3b — intuition */
+}
+
+/* ── Callout / key insight box ── */
+.pill-callout {
+  background: #e8f0fb;
+  border-left: 3px solid #1565c0;
+  padding: 0.9rem 1.1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.9rem;
+}
+.dark .pill-callout {
+  background: #1a2e4a;
+}
+.pill-callout strong {
+  color: #1565c0;
+}
+.dark .pill-callout strong {
+  color: #90b8f0;
+}
+
+/* ── Figure caption (supplements Hugo's default) ── */
+.pill-figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+.pill-figure figcaption {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.54);
+  margin-top: 0.6rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+.dark .pill-figure figcaption {
+  color: rgba(255, 255, 255, 0.54);
+}
+.pill-figure figcaption a {
+  color: #1565c0;
+}
+
+/* ── Key papers table ── */
+.pill-papers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin: 1.25rem 0 1.75rem;
+}
+.pill-papers-table thead tr {
+  background: #f8f9fa;
+}
+.dark .pill-papers-table thead tr {
+  background: #242424;
+}
+.pill-papers-table th {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.dark .pill-papers-table th {
+  color: rgba(255, 255, 255, 0.54);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+.pill-papers-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  vertical-align: top;
+}
+.dark .pill-papers-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+.pill-papers-table tr:last-child td {
+  border-bottom: none;
+}
+.pill-papers-table tr:hover td {
+  background: #f8f9fa;
+}
+.dark .pill-papers-table tr:hover td {
+  background: #242424;
+}
+.pill-papers-table .paper-title {
+  font-weight: 500;
+}
+.pill-papers-table .paper-title a {
+  color: #1565c0;
+  text-decoration: none;
+}
+.pill-papers-table .paper-title a:hover {
+  text-decoration: underline;
+}
+.pill-papers-table .paper-meta {
+  font-size: 0.78rem;
+  color: rgba(0, 0, 0, 0.45);
+}
+.dark .pill-papers-table .paper-meta {
+  color: rgba(255, 255, 255, 0.45);
+}
+.pill-papers-table .paper-summary {
+  font-size: 0.82rem;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.4;
+}
+.dark .pill-papers-table .paper-summary {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── arXiv badge ── */
+.arxiv-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #b31b1b;
+  background: #fff0f0;
+  border: 1px solid #f5c6c6;
+  padding: 1px 7px;
+  border-radius: 3px;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: var(--font-family-monospace);
+}
+.arxiv-badge:hover {
+  background: #ffe0e0;
+  color: #b31b1b;
+}
+.dark .arxiv-badge {
+  background: #2a1010;
+  border-color: #6b2020;
+  color: #f08080;
+}
+
+/* ── Verification note (Gate 1, remove before publishing) ── */
+.pill-verification-note {
+  background: #fffbea;
+  border: 1px solid #f0d060;
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  font-size: 0.82rem;
+  color: #7a6000;
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.dark .pill-verification-note {
+  background: #2a2200;
+  border-color: #665500;
+  color: #e8c840;
+}
+
+/* ── Reader kit box ── */
+.pill-reader-kit {
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+.dark .pill-reader-kit {
+  background: #242424;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.pill-reader-kit-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+.pill-reader-kit-icon {
+  width: 36px;
+  height: 36px;
+  background: #e8f0fb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #1565c0;
+}
+.dark .pill-reader-kit-icon {
+  background: #1a2e4a;
+  color: #90b8f0;
+}
+.pill-reader-kit p {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 0 0 1rem;
+}
+.dark .pill-reader-kit p {
+  color: rgba(255, 255, 255, 0.54);
+}
+
+/* ── Reading progress bar ── */
+.pill-reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #1565c0;
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ── Tags row ── */
+.pill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2.5rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.dark .pill-tags {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}

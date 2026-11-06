@@ -1,0 +1,60 @@
+{{/*
+  Renders the key papers table with styled arxiv badges.
+  The inner content is a standard Markdown table — Hugo renders it,
+  then this shortcode wraps it with the pill-papers-table class and
+  post-processes arxiv links into badges.
+
+  Usage:
+    {{< pill-papers >}}
+    | Paper | Authors | Year | Arxiv | Summary |
+    |-------|---------|------|-------|---------|
+    | Title | A, B | 2020 | https://arxiv.org/abs/1911.01429 | One-line summary. |
+    {{< /pill-papers >}}
+
+  For deep-dive focal paper (expanded columns):
+    {{< pill-papers >}}
+    | Paper | Authors | Year | Arxiv | Summary | Method | Limitations |
+    |-------|---------|------|-------|---------|--------|-------------|
+    | ...   | ...     | ...  | ...   | ...     | ...    | ...         |
+    {{< /pill-papers >}}
+*/}}
+<div class="pill-papers-wrapper">
+  {{ .Inner | markdownify }}
+</div>
+
+<script>
+(function() {
+  var wrapper = document.currentScript.previousElementSibling;
+  var table = wrapper.querySelector('table');
+  if (!table) return;
+
+  /* Add pill table class */
+  table.classList.add('pill-papers-table');
+
+  /* Style header row */
+  var headers = table.querySelectorAll('th');
+  headers.forEach(function(th) { th.setAttribute('scope', 'col'); });
+
+  /* Convert raw arxiv URLs in cells into badges */
+  var cells = table.querySelectorAll('td');
+  cells.forEach(function(td) {
+    var html = td.innerHTML;
+    /* Match full arxiv URL */
+    var arxivRe = /https?:\/\/arxiv\.org\/abs\/([\d.]+v?\d*)/g;
+    html = html.replace(arxivRe, function(url, id) {
+      return '<a class="arxiv-badge" href="' + url + '" target="_blank" rel="noopener">arXiv:' + id + '</a>';
+    });
+    /* Style paper title cell (first column) */
+    td.innerHTML = html;
+  });
+
+  /* Wrap first-column content for title + meta styling */
+  var rows = table.querySelectorAll('tbody tr');
+  rows.forEach(function(row) {
+    var firstCell = row.querySelector('td:first-child');
+    if (firstCell) {
+      firstCell.classList.add('paper-title-cell');
+    }
+  });
+})();
+</script>
